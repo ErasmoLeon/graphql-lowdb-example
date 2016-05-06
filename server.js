@@ -4,6 +4,8 @@ import schema from './graphql';
 
 var app = express();
 
+app.use(express.static(__dirname));
+
 app.use('/graphql', graphqlHTTP(req => ({
   schema,
   pretty: true
