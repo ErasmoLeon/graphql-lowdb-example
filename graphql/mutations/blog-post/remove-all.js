@@ -2,13 +2,12 @@ import {
   GraphQLBoolean
 } from 'graphql';
 
-import BlogPostModel from '../../../models/blog-post';
+import db from './../../../db';
 
 export default {
   type: GraphQLBoolean,
   resolve (root, params, options) {
-    return BlogPostModel
-      .remove({})
-      .exec();
+    db('blogpost').remove({id: params.id});
+    return true;
   }
 };

@@ -4,7 +4,8 @@ import {
 } from 'graphql';
 
 import commentInputType from '../../types/comment-input';
-import CommentModel from '../../../models/comment';
+
+import db from './../../../db';
 
 export default {
   type: GraphQLBoolean,
@@ -15,12 +16,7 @@ export default {
     }
   },
   async resolve (root, params, options) {
-    const commentModel = new CommentModel(params.data);
-    const newComment = await commentModel.save();
-
-    if (!newComment) {
-      throw new Error('Error adding new comment');
-    }
+    db('comment').push(params.data);
     return true;
   }
 };

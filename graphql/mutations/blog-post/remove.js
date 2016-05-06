@@ -4,8 +4,8 @@ import {
 } from 'graphql';
 
 import blogPostType from '../../types/blog-post';
-import getProjection from '../../get-projection';
-import BlogPostModel from '../../../models/blog-post';
+
+import db from './../../../db';
 
 export default {
   type: blogPostType,
@@ -16,17 +16,7 @@ export default {
     }
   },
   async resolve (root, params, options) {
-    const projection = getProjection(options.fieldASTs[0]);
-    const removedBlogPost = await BlogPostModel
-      .findByIdAndRemove(params._id, {
-        select: projection
-      })
-      .exec();
-
-    if (!removedBlogPost) {
-      throw new Error('Error removing blog post');
-    }
-
-    return removedBlogPost;
+    db('blogpost').remove({id: params.id});
+    return true;
   }
 };

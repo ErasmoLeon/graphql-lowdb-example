@@ -2,13 +2,12 @@ import {
   GraphQLBoolean
 } from 'graphql';
 
-import CommentModel from '../../../models/comment';
+import db from './../../../db';
 
 export default {
   type: GraphQLBoolean,
   resolve (root, params, options) {
-    return CommentModel
-      .remove()
-      .exec();
+    db('comment').remove({id: params.id});
+    return true;
   }
 };

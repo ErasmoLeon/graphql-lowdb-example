@@ -5,8 +5,8 @@ import {
 } from 'graphql';
 
 import commentType from '../../types/comment';
-import getProjection from '../../get-projection';
-import CommentModel from '../../../models/comment';
+
+import db from './../../../db';
 
 export default {
   type: new GraphQLList(commentType),
@@ -17,13 +17,6 @@ export default {
     }
   },
   resolve (root, params, options) {
-    const projection = getProjection(options.fieldASTs[0]);
-
-    return CommentModel
-      .find({
-        postId: params.postId
-      })
-      .select(projection)
-      .exec();
+    return db('comment').value();
   }
 };

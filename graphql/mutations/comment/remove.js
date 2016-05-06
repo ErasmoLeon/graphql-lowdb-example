@@ -4,8 +4,8 @@ import {
 } from 'graphql';
 
 import commentType from '../../types/comment';
-import getProjection from '../../get-projection';
-import CommentModel from '../../../models/comment';
+
+import db from './../../../db';
 
 export default {
   type: commentType,
@@ -16,17 +16,7 @@ export default {
     }
   },
   async resolve (root, params, options) {
-    const projection = getProjection(options.fieldASTs[0]);
-    const removedComment = await CommentModel
-      .findByIdAndRemove(params._id, {
-        select: projection
-      })
-      .exec();
-
-    if (!removedComment) {
-      throw new Error('Error removing blog post');
-    }
-
-    return removedComment;
+    db('comment').remove({id: params.id});
+    return true;
   }
 };
