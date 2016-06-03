@@ -3,7 +3,7 @@ import {
   GraphQLBoolean
 } from 'graphql';
 
-import blogPostInputType from '../../types/blog-post-input';
+import articleInputType from '../../types/article-input';
 
 import db from './../../../db';
 
@@ -12,11 +12,11 @@ export default {
   args: {
     data: {
       name: 'data',
-      type: new GraphQLNonNull(blogPostInputType)
+      type: new GraphQLNonNull(articleInputType)
     }
   },
-  async resolve (root, params, options) {
-    db('blogpost').push(params.data);
+  async resolve(root, params) {
+    db('article').push(params.data);
     return true;
   }
 };

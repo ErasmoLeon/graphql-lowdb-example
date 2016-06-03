@@ -3,7 +3,7 @@ import {
   GraphQLBoolean
 } from 'graphql';
 
-import commentInputType from '../../types/comment-input';
+import channelInputType from '../../types/channel-input';
 
 import db from './../../../db';
 
@@ -12,11 +12,11 @@ export default {
   args: {
     data: {
       name: 'data',
-      type: new GraphQLNonNull(commentInputType)
+      type: new GraphQLNonNull(channelInputType)
     }
   },
-  async resolve (root, params, options) {
-    db('comment').push(params.data);
+  async resolve(root, params, options) {
+    db('channel').push(params.data);
     return true;
   }
 };

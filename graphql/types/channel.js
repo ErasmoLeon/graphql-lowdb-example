@@ -2,20 +2,20 @@ import {
   GraphQLObjectType,
   GraphQLNonNull,
   GraphQLString,
-  GraphQLID
+  GraphQLID,
 } from 'graphql';
 
 export default new GraphQLObjectType({
-  name: 'BlogPost',
+  name: 'Channel',
   fields: {
     id: {
-      type: new GraphQLNonNull(GraphQLID)
+      type: new GraphQLNonNull(GraphQLID),
     },
-    title: {
-      type: GraphQLString
+    name: {
+      type: GraphQLString,
     },
     description: {
-      type: GraphQLString
-    }
-  }
+      type: GraphQLString,
+    },
+  },
 });

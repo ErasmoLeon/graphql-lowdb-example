@@ -1,7 +1,7 @@
-import blogPost from './blog-post';
-import comment from './comment';
+import article from './article';
+import channel from './channel';
 
 export default {
-  ...blogPost,
-  ...comment
+  ...article,
+  ...channel,
 };
