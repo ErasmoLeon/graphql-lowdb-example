@@ -5,6 +5,7 @@ import {
 
 import articleInputType from '../../types/article-input';
 
+import { store } from './../../../services/article.service';
 
 export default {
   type: GraphQLBoolean,
@@ -15,7 +16,6 @@ export default {
     }
   },
   async resolve(root, params) {
-    db('article').push(params.data);
-    return true;
+    return store(params.data);
   }
 };

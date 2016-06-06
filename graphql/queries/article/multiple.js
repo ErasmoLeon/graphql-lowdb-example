@@ -11,5 +11,5 @@ export default {
   args: {},
   resolve(root, params) {
     return db('article').value();
-  },
+  },  
 };

@@ -20,7 +20,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       status: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM('enable', 'disable'),
         allowNull: false,
       },
       created_at: {

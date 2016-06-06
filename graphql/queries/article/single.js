@@ -5,7 +5,7 @@ import {
 
 import articleType from '../../types/article';
 
-import db from './../../../db';
+import { findById } from './../../../services/article.service';
 
 export default {
   type: articleType,
@@ -16,8 +16,6 @@ export default {
     },
   },
   resolve(root, params) {
-    return db('article').find({
-      id: params.id,
-    });
+    return findById(params.id);
   },
 };
