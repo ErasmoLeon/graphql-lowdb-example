@@ -3,9 +3,9 @@ import {
   GraphQLBoolean
 } from 'graphql';
 
-import channelInputType from '../../types/channel-input';
+import channelInputType from './../../types/channel-input';
 
-import db from './../../../db';
+import { store } from './../../../services/channel.service';
 
 export default {
   type: GraphQLBoolean,
@@ -15,8 +15,7 @@ export default {
       type: new GraphQLNonNull(channelInputType)
     }
   },
-  async resolve(root, params, options) {
-    db('channel').push(params.data);
-    return true;
+  async resolve(root, params) {
+    return store(params.data);
   }
 };

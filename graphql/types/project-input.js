@@ -16,5 +16,8 @@ export default new GraphQLInputObjectType({
     logo: {
       type: new GraphQLNonNull(GraphQLString),
     },
+    user_id: {
+      type: new GraphQLNonNull(GraphQLString),
+    },
   },
 });

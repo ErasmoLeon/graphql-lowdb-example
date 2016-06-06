@@ -16,6 +16,7 @@ export default {
     },
   },
   resolve(root, params) {
-    return findById(params.id);
+    const withProjects = true;
+    return findById(params.id, withProjects);
   },
 };

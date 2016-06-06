@@ -7,6 +7,7 @@ export default (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     role: DataTypes.STRING,
   }, {
+    underscored: true,
     classMethods: {
       associate: models => {
         const manyToManyConfig = {

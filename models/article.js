@@ -10,9 +10,11 @@ export default (sequelize, DataTypes) => {
     status: DataTypes.STRING,
     published_at: DataTypes.DATE,
   }, {
+    underscored: true,
     classMethods: {
       associate: models => {
         Article.belongsTo(models.user);
+        Article.belongsTo(models.channel);
         Article.belongsToMany(models.tag, { through: 'articleTag' });
       },
     },

@@ -17,5 +17,8 @@ export default new GraphQLInputObjectType({
     description: {
       type: GraphQLString,
     },
+    project_id: {
+      type: new GraphQLNonNull(GraphQLID),
+    },
   },
 });

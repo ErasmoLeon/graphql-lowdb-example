@@ -4,6 +4,7 @@ export default (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     logo: DataTypes.STRING,
   }, {
+    underscored: true,
     classMethods: {
       associate: models => {
         const manyToManyConfig = {
@@ -12,6 +13,7 @@ export default (sequelize, DataTypes) => {
           otherKey: 'user_id',
         };
         Project.belongsToMany(models.user, manyToManyConfig);
+        Project.hasMany(models.channel);
       },
     },
   });

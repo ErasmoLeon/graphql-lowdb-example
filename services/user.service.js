@@ -4,7 +4,10 @@ import { findById as findProjectById } from './project.service';
 
 export const findaAll = () => models.user.findAll();
 
-export const findById = id => models.user.findById(id, { include: [{ model: models.project }] });
+export const findById = (id, withProjects = false) => {
+  const includes = withProjects ? { include: [{ model: models.project }] } : null;
+  return models.user.findById(id, includes);
+};
 
 export const findOne = where => models.user.findOne({ where });
 
@@ -21,6 +24,8 @@ export const store = data => {
   return userPromiseStore;
 };
 
+export const attachProject = (user, project, role) => user.addProject(project, { role });
+
 export const addProject = data => {
   const userPromiseStore = new Promise((resolve, reject) => {
     Promise.all([
@@ -32,7 +37,7 @@ export const addProject = data => {
       if (!user || !project) {
         reject('User or Project not exists');
       } else {
-        resolve(user.addProject(project, { role: data.role }));
+        resolve(attachProject(user, project, data.role));
       }
     });
   });

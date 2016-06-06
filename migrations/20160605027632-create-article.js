@@ -32,6 +32,26 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
+      channel_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'channels',
+          key: 'id'
+        },
+        onUpdate: 'cascade',
+        onDelete: 'restrict'
+      },
+      user_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'users',
+          key: 'id'
+        },
+        onUpdate: 'cascade',
+        onDelete: 'restrict'
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE
