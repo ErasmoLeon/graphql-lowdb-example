@@ -27,5 +27,8 @@ export default new GraphQLObjectType({
       type: new GraphQLList(channelType),
       resolve: project => project.channels.map(channel => channel.dataValues),
     },
+    status: {
+      type: GraphQLString,
+    },
   },
 });

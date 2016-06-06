@@ -10,13 +10,15 @@ module.exports = {
         type: Sequelize.BIGINT
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       subtitle: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       body: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        allowNull: false,
       },
       image: {
         type: Sequelize.STRING
@@ -24,9 +26,11 @@ module.exports = {
       url: {
         type: Sequelize.STRING,
         unique: true,
+        allowNull: false,
       },
       status: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       published_at: {
         allowNull: false,

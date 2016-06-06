@@ -3,6 +3,7 @@ export default (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     description: DataTypes.STRING,
     logo: DataTypes.STRING,
+    status: DataTypes.STRING,
   }, {
     underscored: true,
     classMethods: {

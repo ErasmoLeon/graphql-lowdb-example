@@ -2,6 +2,7 @@ export default (sequelize, DataTypes) => {
   const Channel = sequelize.define('channel', {
     name: DataTypes.STRING,
     description: DataTypes.STRING,
+    status: DataTypes.STRING,
     project_id: {
       type: DataTypes.INTEGER,
       references: {

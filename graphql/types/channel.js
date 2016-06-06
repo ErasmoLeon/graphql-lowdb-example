@@ -17,5 +17,8 @@ export default new GraphQLObjectType({
     description: {
       type: GraphQLString,
     },
+    status: {
+      type: GraphQLString,
+    },
   },
 });

@@ -42,21 +42,3 @@ export default new GraphQLObjectType({
     },
   },
 });
-
-/**
- author_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
- user_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
- channel_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
- tags: {
-    type: Array,
-  },
- */

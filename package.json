@@ -18,13 +18,11 @@
     "express-graphql": "^0.5.1",
     "graphiql": "^0.7.1",
     "graphql": "^0.5.0",
-    "lowdb": "^0.12.5",
     "mysql": "^2.10.2",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
     "sequelize": "^3.23.3",
-    "sequelize-cli": "^2.4.0",
-    "umzug": "^1.11.0"
+    "sequelize-cli": "^2.4.0"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",

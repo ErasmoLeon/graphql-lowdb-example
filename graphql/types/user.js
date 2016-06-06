@@ -32,6 +32,9 @@ export default new GraphQLObjectType({
     role: {
       type: new GraphQLNonNull(GraphQLString),
     },
+    status: {
+      type: GraphQLString,
+    },
     projects: {
       type: new GraphQLList(userProjectType),
       resolve: user => {

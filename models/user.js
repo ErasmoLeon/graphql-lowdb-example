@@ -6,6 +6,7 @@ export default (sequelize, DataTypes) => {
     avatar: DataTypes.STRING,
     password: DataTypes.STRING,
     role: DataTypes.STRING,
+    status: DataTypes.STRING,
   }, {
     underscored: true,
     classMethods: {

@@ -3,11 +3,6 @@ export default (sequelize, DataTypes) => {
     role: DataTypes.STRING,
   }, {
     underscored: true,
-    classMethods: {
-      associate: models => {
-        // associations can be defined here
-      },
-    },
   });
   return ArticleTag;
 };

@@ -5,7 +5,6 @@ import {
 
 import articleInputType from '../../types/article-input';
 
-import db from './../../../db';
 
 export default {
   type: GraphQLBoolean,
