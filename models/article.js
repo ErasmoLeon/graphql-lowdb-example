@@ -15,7 +15,7 @@ export default (sequelize, DataTypes) => {
       associate: models => {
         Article.belongsTo(models.user);
         Article.belongsTo(models.channel);
-        Article.belongsToMany(models.tag, { through: 'articleTag' });
+        Article.belongsToMany(models.tag, { through: 'articleTag', as: 'tags' });
       },
     },
   });
