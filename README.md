@@ -45,3 +45,40 @@ mutation addChannel($data: ChannelInput!){
   }
 }
 ```
+
+**PROJECT MUTATION:**
+
+```
+mutation addProject($data: ProjectInput!){
+  addProject(data:$data)
+}
+
+```
+```
+{
+  "data": {
+    "name": "m3",
+    "logo": "leon"
+  }
+}
+```
+
+**USER MUTATION:**
+
+```
+mutation addUser($data: UserInput!){
+  addUser(data:$data)
+}
+
+```
+```
+{
+  "data": {
+    "first_name": "erasmo",
+    "last_name": "leon",
+    "email": "erasmo.lele3@gmail.com",
+    "role": "admin",
+    "password": "qweqwe123"
+  }
+}
+```

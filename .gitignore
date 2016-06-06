@@ -4,3 +4,5 @@ dist
 .idea
 
 db.json
+
+npm-debug.log
