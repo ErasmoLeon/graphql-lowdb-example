@@ -16,6 +16,6 @@ export default {
     },
   },
   resolve(root, params) {
-    return findById(params.id);
+    return findById(params.id, true);
   },
 };

@@ -13,9 +13,14 @@ export default (sequelize, DataTypes) => {
     underscored: true,
     classMethods: {
       associate: models => {
+        const manyToManyConfig = {
+          through: 'article_tag',
+          foreignKey: 'article_id',
+          otherKey: 'tag_id',
+        };
         Article.belongsTo(models.user);
         Article.belongsTo(models.channel);
-        Article.belongsToMany(models.tag, { through: 'articleTag', as: 'tags' });
+        Article.belongsToMany(models.tag, manyToManyConfig);
       },
     },
   });

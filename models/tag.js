@@ -5,7 +5,12 @@ export default (sequelize, DataTypes) => {
     underscored: true,
     classMethods: {
       associate: models => {
-        Tag.belongsToMany(models.article, { through: 'articleTag' });
+        const manyToManyConfig = {
+          through: 'article_tag',
+          foreignKey: 'tag_id',
+          otherKey: 'article_id',
+        };
+        Tag.belongsToMany(models.article, manyToManyConfig);
       },
     },
   });

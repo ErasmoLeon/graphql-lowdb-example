@@ -2,6 +2,10 @@ import models from '../models';
 
 import { findById as findProjectById } from './project.service';
 
+import bcrypt from 'bcrypt';
+
+const saltRounds = 10;
+
 export const findaAll = () => models.user.findAll();
 
 export const findById = (id, withProjects = false) => {
@@ -17,7 +21,9 @@ export const store = data => {
       if (user) {
         reject('The user already exists');
       } else {
-        resolve(models.user.create(data));
+        bcrypt.hash(data.password, saltRounds, (err, hash) => {
+          resolve(models.user.create({ ...data, ... { password: hash } }));
+        });
       }
     });
   });

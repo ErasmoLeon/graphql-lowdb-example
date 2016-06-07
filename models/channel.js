@@ -15,6 +15,7 @@ export default (sequelize, DataTypes) => {
     classMethods: {
       associate: models => {
         Channel.belongsTo(models.project);
+        Channel.hasMany(models.article);
       },
     },
   });

@@ -2,7 +2,10 @@ import models from '../models';
 
 import { findById as findProjectById } from './project.service';
 
-export const findById = id => models.channel.findById(id);
+export const findById = (id, withArticles = false) => {
+  const includes = withArticles ? { include: [{ model: models.article }] } : null;
+  return models.channel.findById(id, includes);
+};
 
 export const findOne = where => models.channel.findOne({ where });
 

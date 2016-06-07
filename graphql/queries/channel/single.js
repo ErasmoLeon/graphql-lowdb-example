@@ -5,7 +5,7 @@ import {
 
 import channelType from '../../types/channel';
 
-import db from './../../../db';
+import { findById } from './../../../services/channel.service';
 
 export default {
   type: channelType,
@@ -16,8 +16,6 @@ export default {
     },
   },
   resolve(root, params) {
-    return db('channel').find({
-      id: params.id,
-    });
+    return findById(params.id, true);
   },
 };

@@ -1,7 +1,5 @@
-export default (sequelize, DataTypes) => {
-  const ArticleTag = sequelize.define('article_tag', {
-    role: DataTypes.STRING,
-  }, {
+export default sequelize => {
+  const ArticleTag = sequelize.define('article_tag', {}, {
     underscored: true,
   });
   return ArticleTag;

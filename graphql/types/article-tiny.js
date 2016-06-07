@@ -3,17 +3,10 @@ import {
   GraphQLNonNull,
   GraphQLString,
   GraphQLID,
-  GraphQLList,
 } from 'graphql';
 
-import tagType from './tag';
-
-import channelType from './channel';
-
-import userType from './user';
-
 export default new GraphQLObjectType({
-  name: 'Article',
+  name: 'ArticleTiny',
   fields: {
     id: {
       type: new GraphQLNonNull(GraphQLID),
@@ -23,6 +16,10 @@ export default new GraphQLObjectType({
     },
     body: {
       type: new GraphQLNonNull(GraphQLString),
+      resolve: article => article.body.substring(0, 250),
+    },
+    user_id: {
+      type: new GraphQLNonNull(GraphQLID),
     },
     image: {
       type: GraphQLString,
@@ -32,18 +29,6 @@ export default new GraphQLObjectType({
     },
     date_published: {
       type: GraphQLString,
-    },
-    tags: {
-      type: new GraphQLList(tagType),
-      resolve: article => article.tags.map(project => project.dataValues),
-    },
-    channel: {
-      type: channelType,
-      resolve: article => article.channel,
-    },
-    user: {
-      type: userType,
-      resolve: article => article.user,
     },
   },
 });
