@@ -28,7 +28,7 @@ export const attachTags = (article, tags) => {
   const attachPromise = new Promise(resolve => {
     Promise.all(buildFindOrCreateTagsPromises(tags))
       .then(tagsResults => {
-        resolve(article.addTags(tagsResults.map(tag => tag[0])));
+        resolve(article.setTags(tagsResults.map(tag => tag[0])));
       });
   });
   return attachPromise;
